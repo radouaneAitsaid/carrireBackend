@@ -1,0 +1,340 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /employes:
+    get:
+      summary: List all employes
+      operationId: listEmployes
+      tags:
+        - employes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of employes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Employes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a employe
+      operationId: createEmployes
+      tags:
+        - employes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /employes/{employeId}:
+    get:
+      summary: Info for a specific employe
+      operationId: showEmployeById
+      tags:
+        - employes
+      parameters:
+        - name: employeId
+          in: path
+          required: true
+          description: The id of the employe to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Employes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /echelles:
+    get:
+      summary: List all echelles
+      operationId: listEchelles
+      tags:
+        - echelles
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of echelles
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Echelles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a echelle
+      operationId: createEchelles
+      tags:
+        - echelles
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /echelles/{echelleId}:
+    get:
+      summary: Info for a specific echelle
+      operationId: showEchelleById
+      tags:
+        - echelles
+      parameters:
+        - name: echelleId
+          in: path
+          required: true
+          description: The id of the echelle to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Echelles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avancements:
+    get:
+      summary: List all avancements
+      operationId: listAvancements
+      tags:
+        - avancements
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of avancements
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Avancements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a avancement
+      operationId: createAvancements
+      tags:
+        - avancements
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avancements/{avancementId}:
+    get:
+      summary: Info for a specific avancement
+      operationId: showAvancementById
+      tags:
+        - avancements
+      parameters:
+        - name: avancementId
+          in: path
+          required: true
+          description: The id of the avancement to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Avancements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /echelons:
+    get:
+      summary: List all echelons
+      operationId: listEchelons
+      tags:
+        - echelons
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of echelons
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Echelons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a echelon
+      operationId: createEchelons
+      tags:
+        - echelons
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /echelons/{echelonId}:
+    get:
+      summary: Info for a specific echelon
+      operationId: showEchelonById
+      tags:
+        - echelons
+      parameters:
+        - name: echelonId
+          in: path
+          required: true
+          description: The id of the echelon to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Echelons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  Employe:
+    type: "object"
+    required:
+      - id
+      - ref
+      - username
+      - nom
+      - password
+      - salaire
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      username:
+        type: string
+      nom:
+        type: string
+      password:
+        type: string
+      salaire:
+        type: number
+  Employes:
+    type: array
+    items:
+      $ref: '#/definitions/Employe'
+  Echelle:
+    type: "object"
+    required:
+      - id
+      - ref
+      - libelle
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      libelle:
+        type: string
+  Echelles:
+    type: array
+    items:
+      $ref: '#/definitions/Echelle'
+  Avancement:
+    type: "object"
+    required:
+      - id
+      - ref
+      - salaireAjoute
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      salaireAjoute:
+        type: number
+  Avancements:
+    type: array
+    items:
+      $ref: '#/definitions/Avancement'
+  Echelon:
+    type: "object"
+    required:
+      - id
+      - ref
+      - libelle
+      - salaire
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      libelle:
+        type: string
+      salaire:
+        type: number
+  Echelons:
+    type: array
+    items:
+      $ref: '#/definitions/Echelon'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

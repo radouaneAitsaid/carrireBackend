@@ -1,0 +1,16 @@
+{
+    "ref": "#string",
+    "username": "#string",
+    "nom": "#string",
+    "password": "#string",
+    "salaire": "#number"
+
+}
+
+
+
+
+
+
+
+

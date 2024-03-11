@@ -1,0 +1,15 @@
+{
+    "ref": "#string",
+    "employe": {"id": "#number"},
+    "echelon": {"id": "#number"},
+    "salaireAjoute": "#number"
+
+}
+
+
+
+
+
+
+
+
