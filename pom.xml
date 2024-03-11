@@ -23,7 +23,7 @@
         <commons-io.version>2.4</commons-io.version>
         <commons-fileupload.version>1.4</commons-fileupload.version>
         <velocity-engine-core.version>2.2</velocity-engine-core.version>
-        <itextpdf.version>5.5.11</itextpdf.version>
+        <itextpdf.version>5.5.13.3</itextpdf.version>
         <itextpdf-xmlworker.version>5.5.10</itextpdf-xmlworker.version>
         <springdoc-openapi.version>2.2.0</springdoc-openapi.version>
         <karate.version>1.4.1</karate.version>
