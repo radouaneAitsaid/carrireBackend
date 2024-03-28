@@ -1,6 +1,5 @@
 package ma.zs.carriere.dao.facade.core.commun;
 
-import ma.zs.carriere.bean.core.commun.Employe;
 import ma.zs.carriere.bean.core.commun.EntiteAdmin;
 import ma.zs.carriere.zynerator.repository.AbstractRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,7 +19,7 @@ public interface EntiteAdminDao extends AbstractRepository<EntiteAdmin,Long>  {
     int deleteByTitrePoste(String titrePoste);
 
 
-    @Query("SELECT NEW Employe(item.id,item.nom) FROM Employe item")
-    List<Employe> findAllOptimized();
+    @Query("SELECT NEW Employe(item.id,item.ref) FROM Employe item")
+    List<EntiteAdmin> findAllOptimized();
 
 }

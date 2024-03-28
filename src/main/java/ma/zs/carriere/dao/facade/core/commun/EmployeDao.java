@@ -14,7 +14,7 @@ public interface EmployeDao extends AbstractRepository<Employe,Long>  {
     int deleteByRef(String ref);
 
 
-    @Query("SELECT NEW Employe(item.id,item.nom) FROM Employe item")
+    @Query("SELECT NEW Employe(item.id,item.ref) FROM Employe item")
     List<Employe> findAllOptimized();
 
 }
