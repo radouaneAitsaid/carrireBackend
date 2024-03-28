@@ -1,10 +1,9 @@
 package ma.zs.carriere.ws.dto.commun;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import ma.zs.carriere.bean.core.commun.Employe;
 import ma.zs.carriere.zynerator.audit.Log;
 import ma.zs.carriere.zynerator.dto.AuditBaseDto;
-
-import java.math.BigDecimal;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -41,7 +40,7 @@ public class EntiteAdminDto extends AuditBaseDto {
     }
 
     @Log
-    public String getChefDepart() {
+    public Employe getChefDepart() {
         return chefDepart;
     }
 

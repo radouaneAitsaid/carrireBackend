@@ -23,6 +23,7 @@ public class EntiteAdmin extends AuditBusinessObject {
     private String titrePoste;
 
 
+
     public Long getId() {
         return id;
     }
@@ -47,11 +48,11 @@ public class EntiteAdmin extends AuditBusinessObject {
         this.titrePoste = titrePoste;
     }
 
-    public String getChefDepart() {
+    public Employe getChefDepart() {
         return chefDepart;
     }
 
-    public void setChefDepart(String chefDepart) {
+    public void setChefDepart(Employe chefDepart) {
         this.chefDepart = chefDepart;
     }
 
